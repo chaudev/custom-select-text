@@ -1,5 +1,5 @@
 
-# react-native-selectable-text
+# react-native-custom-select-text
 
 ## Demo
 
@@ -14,20 +14,20 @@
 ## Usage
 
 ```javascript
-import { SelectableText } from "@astrocoders/react-native-selectable-text";
+import { SelectableText } from "react-native-custom-select-text";
 
-// Use normally, it is a drop-in replacement for react-native/Text
 <SelectableText
-  menuItems={["Foo", "Bar"]}
-  /* 
-    Called when the user taps in a item of the selection menu:
-    - eventType: (string) is the label
-    - content: (string) the selected text portion
-    - selectionStart: (int) is the start position of the selected text
-    - selectionEnd: (int) is the end position of the selected text
-   */
-  onSelection={({ eventType, content, selectionStart, selectionEnd }) => {}}
-  value="I crave star damage"
+  menuItems={['View', 'Edit', 'Delete']}
+  onSelection={({ eventType, content, selectionStart, selectionEnd }) => {
+    // call your function
+  }}
+  highlights={[{id: 'lov', start: 2, end: 6}, {id: 'Cha', start: 11, end: 15}]}
+  onHighlightPress={id => {
+    console.log('id : ', id);
+    // call your function
+  }}
+  highlightColor={'yellow'}
+  value="I love Bao Chau"
 />;
 ```
 
